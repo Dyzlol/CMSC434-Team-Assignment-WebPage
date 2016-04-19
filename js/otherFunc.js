@@ -1,0 +1,5 @@
+function showHideControl()
+   {
+   $('#otherCategoryDescription').toggle();
+};
+       							
