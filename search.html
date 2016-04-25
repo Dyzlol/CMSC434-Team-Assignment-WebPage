@@ -17,6 +17,7 @@
 		<script src="./js/skel-layers.min.js"></script>
 		<script src="./js/init.js"></script>
 		<script src="js/otherFunc.js"></script>
+		<script src="search.js"></script>
 		
 		<noscript>
 			<link rel="stylesheet" href="/css/skel.css"/>
@@ -41,8 +42,7 @@
 			<section id="one" class="wrapper style1 special">
 				<div class="container">
 					<header class="major">
-						<h2>New Information Input Form</h2>
-						<p>Please fill out this form regarding a new resource center to the best of your abilities.</p>
+						<h2>What are you looking for?</h2>
 					</header>
 							
 					<link rel="stylesheet" href="./wickedpicker/stylesheets/wickedpicker.css">
@@ -52,122 +52,12 @@
 						<form method="post" action="#">
 						<div class="row uniform 50%">
 							<!-- <div class="6u 12u$(2)"> -->
-								<label for="event"> Event/Opportunity Name </label>
-								<input name="eventName" type="text"/>
 								
-								<label for="address"> Street Address </label>
-								<input name="address" type="text"/>
-								
-								<label for="city"> City </label>
-								<input name="city" type="text"/>
-								
-								<label for="state"> State </label>
-								<select id="state">
-									<option disabled selected value> -- select an option -- </option>
-  									<option value="WashingtonDC">Washington D.C.</option>
-  									<option value="Virginia">Virginia</option>
-  									<option value="Maryland">Maryland</option>
-								</select>
-								
-								<label for="zipCode"> Zip Code </label>
-								<input name="zipCode" type="text"/>
-								
-								<!-- <label for="operationHours"> Hours of Operation </label>
-								<div class="row uniform 50%">
-									<div class="4u 12u$(3)">
-										Monday:
-									</div>
-									<div class="4u 12u$(3)">
-
-										<input type="text" placeholder="Opening Time"  name="MondayOpeningTime" class="timepicker"/>
-										
-									</div>
-									<div class="4u 12u$(3)">
-										<input type="text" placeholder="Closing Time" name="MondayClosingTime" class="timepicker"/>
-									
-									</div>
-							
-								</div>
-								</br>
-								<div class="row uniform 50%">
-									<div class="4u 12u$(3)">
-										Tuesday:
-									</div>
-									<div class="4u 12u$(3)">
-										<input type="text" placeholder="Opening Time" name="TuesdayOpeningTime" class="timepicker"/>
-									</div>
-									<div class="4u 12u$(3)">
-										<input type="text" placeholder="Closing Time" name="TuesdayClosingTime" class="timepicker"/>
-									</div>
-										
-								</div>
-								</br>
-								<div class="row uniform 50%">
-									<div class="4u 12u$(3)">
-										Wednesday:
-									</div>
-									<div class="4u 12u$(3)">
-										<input type="text" placeholder="Opening Time" name="WednesdayOpeningTime" class="timepicker"/>
-									</div>
-									<div class="4u 12u$(3)">
-										<input type="text" placeholder="Closing Time" name="WednesdayClosingTime" class="timepicker"/>
-									</div>
-								</div>
-								</br>
-								<div class="row uniform 50%">
-									<div class="4u 12u$(3)">
-										Thursday:
-									</div>
-									<div class="4u 12u$(3)">
-										<input type="text" placeholder="Opening Time" name="ThursdayOpeningTime" class="timepicker"/>
-									</div>
-									<div class="4u 12u$(3)">
-										<input type="text" placeholder="Closing Time" name="ThursdayClosingTime" class="timepicker"/>
-									</div>
-								</div>
-								</br>
-								<div class="row uniform 50%">
-									<div class="4u 12u$(3)">
-										Friday:
-									</div>
-									<div class="4u 12u$(3)">
-										<input type="text" placeholder="Opening Time" name="FridayOpeningTime" class="timepicker"/>
-									</div>
-									<div class="4u 12u$(3)">
-										<input type="text" placeholder="Closing Time" name="FridayClosingTime" class="timepicker"/>
-									</div>
-								</div>
-								</br>
-								<div class="row uniform 50%">
-									<div class="4u 12u$(3)">
-										Saturday:
-									</div>
-									<div class="4u 12u$(3)">
-										<input type="text" placeholder="Opening Time" name="SaturdayOpeningTime" class="timepicker"/>
-									</div>
-									<div class="4u 12u$(3)">
-										<input type="text" placeholder="Closing Time" name="SaturdayClosingTime" class="timepicker"/>
-									</div>
-								</div>
-								</br>
-								<div class="row uniform 50%">
-									<div class="4u 12u$(3)">
-										Sunday:
-									</div>
-									<div class="4u 12u$(3)">
-										<input type="text" placeholder="Opening Time" name="SundayOpeningTime" class="timepicker"/>
-									</div>
-									<div class="4u 12u$(3)">
-										<input type="text" placeholder="Closing Time" name="SundayClosingTime" class="timepicker"/>
-									</div>
-								</div>
-								</br>
-								<script type="text/javascript">
-            						$('.timepicker').wickedpicker({now: "00:00"});
-       							</script>  -->
-							<!-- </div>
-						-->
 							<div id="bottomStuff">
+
+								<h4><label for="event"> Search </label><h4>
+								<input name="eventName" type="text"/>
+
 								<h4><label for="checkbox"> Category (Check all that apply).</label></h4>
 								<input type="checkbox" name="category" id="categoryFood" value="Food"/>
 								<label for="categoryFood">Food</label>
@@ -188,17 +78,12 @@
 								<label for="categoryOther">Other</label>
 								<input style="display:none" type="text" size="3" id="otherCategoryDescription" placeholder="Please specify category."/>
 								
-								<label for="descriptiontextBox"> Description of Place/Event:</label>
-								<textarea id="descriptiontextBox" rows="3" cols="1" placeholder="Please provide a description of the place and or event."></textarea>
-								</br>
-								<form action="#" method="post" enctype="multipart/form-data">
-   								 	<label for="file">Select images to upload:</label>
-    								<input type="file" name="file[]" multiple />
-    								<input type="submit" value="Upload Images" name="submitFile">
-								</form>
+								<a id="searchSubmit" onclick="location.href='./searchResults.html';">Search</a>
+	
 							</div>
+
 						</div>
-							<input type="submit" value="Submit Form" name="submitForm">
+							
 
 						</form>
 					
