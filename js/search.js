@@ -5,6 +5,7 @@
 
 	document.getElementById("searchSubmit").onclick = function(){
 		location.href="./searchResults.html";
-		sessionStorage.setItem('searchTerm', document.getElementById("searchEventName").value);
+		// sessionStorage.setItem('searchTerm', document.getElementById("searchEventName").value);
+		document.cookie = "searchTerm="+ document.getElementById("searchEventName").value;
 	};
 }
