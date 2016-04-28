@@ -26,6 +26,7 @@ if($_POST['category'] == 'Food') {
 	$otherCheckbox = $_POST['otherTextBox'];
 }
 
+/* hello */ 
 $xml = new DOMDocument('1.0', 'utf-8');
 $xml->formatOutput = true;
 $xml->preserveWhiteSpace = false;
