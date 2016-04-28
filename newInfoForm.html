@@ -62,7 +62,7 @@
 								<input name="city" type="text"/>
 								
 								<label for="state"> State </label>
-								<select id="state">
+								<select name="state">
 									<option disabled selected value> -- select an option -- </option>
   									<option value="WashingtonDC">Washington D.C.</option>
   									<option value="Virginia">Virginia</option>
@@ -72,101 +72,6 @@
 								<label for="zipCode"> Zip Code </label>
 								<input name="zipCode" type="text"/>
 								
-								<!-- <label for="operationHours"> Hours of Operation </label>
-								<div class="row uniform 50%">
-									<div class="4u 12u$(3)">
-										Monday:
-									</div>
-									<div class="4u 12u$(3)">
-
-										<input type="text" placeholder="Opening Time"  name="MondayOpeningTime" class="timepicker"/>
-										
-									</div>
-									<div class="4u 12u$(3)">
-										<input type="text" placeholder="Closing Time" name="MondayClosingTime" class="timepicker"/>
-									
-									</div>
-							
-								</div>
-								</br>
-								<div class="row uniform 50%">
-									<div class="4u 12u$(3)">
-										Tuesday:
-									</div>
-									<div class="4u 12u$(3)">
-										<input type="text" placeholder="Opening Time" name="TuesdayOpeningTime" class="timepicker"/>
-									</div>
-									<div class="4u 12u$(3)">
-										<input type="text" placeholder="Closing Time" name="TuesdayClosingTime" class="timepicker"/>
-									</div>
-										
-								</div>
-								</br>
-								<div class="row uniform 50%">
-									<div class="4u 12u$(3)">
-										Wednesday:
-									</div>
-									<div class="4u 12u$(3)">
-										<input type="text" placeholder="Opening Time" name="WednesdayOpeningTime" class="timepicker"/>
-									</div>
-									<div class="4u 12u$(3)">
-										<input type="text" placeholder="Closing Time" name="WednesdayClosingTime" class="timepicker"/>
-									</div>
-								</div>
-								</br>
-								<div class="row uniform 50%">
-									<div class="4u 12u$(3)">
-										Thursday:
-									</div>
-									<div class="4u 12u$(3)">
-										<input type="text" placeholder="Opening Time" name="ThursdayOpeningTime" class="timepicker"/>
-									</div>
-									<div class="4u 12u$(3)">
-										<input type="text" placeholder="Closing Time" name="ThursdayClosingTime" class="timepicker"/>
-									</div>
-								</div>
-								</br>
-								<div class="row uniform 50%">
-									<div class="4u 12u$(3)">
-										Friday:
-									</div>
-									<div class="4u 12u$(3)">
-										<input type="text" placeholder="Opening Time" name="FridayOpeningTime" class="timepicker"/>
-									</div>
-									<div class="4u 12u$(3)">
-										<input type="text" placeholder="Closing Time" name="FridayClosingTime" class="timepicker"/>
-									</div>
-								</div>
-								</br>
-								<div class="row uniform 50%">
-									<div class="4u 12u$(3)">
-										Saturday:
-									</div>
-									<div class="4u 12u$(3)">
-										<input type="text" placeholder="Opening Time" name="SaturdayOpeningTime" class="timepicker"/>
-									</div>
-									<div class="4u 12u$(3)">
-										<input type="text" placeholder="Closing Time" name="SaturdayClosingTime" class="timepicker"/>
-									</div>
-								</div>
-								</br>
-								<div class="row uniform 50%">
-									<div class="4u 12u$(3)">
-										Sunday:
-									</div>
-									<div class="4u 12u$(3)">
-										<input type="text" placeholder="Opening Time" name="SundayOpeningTime" class="timepicker"/>
-									</div>
-									<div class="4u 12u$(3)">
-										<input type="text" placeholder="Closing Time" name="SundayClosingTime" class="timepicker"/>
-									</div>
-								</div>
-								</br>
-								<script type="text/javascript">
-            						$('.timepicker').wickedpicker({now: "00:00"});
-       							</script>  -->
-							<!-- </div>
-						-->
 							<div id="bottomStuff">
 								<h4><label for="checkbox"> Category (Check all that apply).</label></h4>
 								<input type="checkbox" name="category" id="categoryFood" value="Food"/>
@@ -189,7 +94,7 @@
 								<input style="display:none" type="text" size="3" id="otherCategoryDescription" placeholder="Please specify category."/>
 								
 								<label for="descriptiontextBox"> Description of Place/Event:</label>
-								<textarea id="descriptiontextBox" rows="3" cols="1" placeholder="Please provide a description of the place and or event."></textarea>
+								<textarea name = "otherTextBox" id="descriptiontextBox" rows="3" cols="1" placeholder="Please provide a description of the place and or event."></textarea>
 								</br>
 								<form action="#" method="post" enctype="multipart/form-data">
    								 	<label for="file">Select images to upload:</label>
