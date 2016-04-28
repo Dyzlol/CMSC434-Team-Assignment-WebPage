@@ -1,13 +1,13 @@
 //We are SO sad
 
 
-// function setUp(){
+ function setUp(){
 
-// document.getElementById("searchSubmit").onclick = function(){
-// 	location.href="./searchResults.html";
-// 	var div = document.createElement("div");
-// 	div.className = "huge";
-// 	div.innerText = "LOOK AT ME";
-// 	document.appendChild(div);
-// };
-// }
+	document.getelementbyid("searchsubmit").onclick = function(){
+		location.href="./searchresults.html";
+		var div = document.createelement("div");
+		div.classname = "huge";
+		div.innertext = "look at me";
+		document.appendchild(div);
+	};
+}
