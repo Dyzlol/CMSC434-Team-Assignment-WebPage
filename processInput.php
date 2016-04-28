@@ -24,4 +24,7 @@ if($_POST['category'] == 'Food') {
 	$jobsCheckbox = true;
 } else if ($_POST['category'] == 'Other') {
 	$otherCheckbox = $_POST['otherTextBox'];
+}
+
+
 ?>
