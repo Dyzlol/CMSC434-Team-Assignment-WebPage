@@ -25,7 +25,7 @@
 			<link rel="stylesheet" href="/css/style-xlarge.css"/>
 		</noscript>
 	</head>
-	<body class="landing">
+	<body class="landing" onload="searchOnLoad()">
 
 		<!-- Header -->
 			<header id="header">
@@ -56,7 +56,7 @@
 							<div id="bottomStuff">
 
 								<h4><label for="event"> Search </label><h4>
-								<input name="eventName" type="text"/>
+								<input id="searchEventName" name="eventName" type="text"/>
 
 								<h4><label for="checkbox"> Category (Check all that apply).</label></h4>
 								<input type="checkbox" name="category" id="categoryFood" value="Food"/>
@@ -78,12 +78,14 @@
 								<label for="categoryOther">Other</label>
 								<input style="display:none" type="text" size="3" id="otherCategoryDescription" placeholder="Please specify category."/>
 								
-								<a id="searchSubmit" onclick="location.href='./searchResults.html';">Search</a>
-	
+								
 							</div>
 
 						</div>
-							
+						
+						<a id="searchSubmit" >Search</a>
+	<!-- onclick="location.href='./searchResults.html';" -->
+						<input type="submit" value="Search" name="submitSearch">
 
 						</form>
 					

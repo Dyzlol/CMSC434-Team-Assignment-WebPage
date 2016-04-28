@@ -17,6 +17,7 @@
 		<script src="./js/skel-layers.min.js"></script>
 		<script src="./js/init.js"></script>
 		<script src="js/otherFunc.js"></script>
+		<script src="js/searchResults.js"></script>
 		
 		<noscript>
 			<link rel="stylesheet" href="/css/skel.css"/>
@@ -24,7 +25,7 @@
 			<link rel="stylesheet" href="/css/style-xlarge.css"/>
 		</noscript>
 	</head>
-	<body class="landing">
+	<body class="landing" onload="searchResultsOnLoad()">
 
 		<!-- Header -->
 			<header id="header">
@@ -43,6 +44,8 @@
 					<header class="major">
 						<h2>Search Results</h2>
 					</header>
+					
+					<div id="putStuffHere">Unchanged</div>
 							
 					<link rel="stylesheet" href="./wickedpicker/stylesheets/wickedpicker.css">
 					<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
