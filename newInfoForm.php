@@ -1,3 +1,97 @@
+<?php
+if(isset($_POST['submitForm'])) {
+	$eventName = $_POST['eventName'];
+	$address = $_POST['address'];
+	$city = $_POST['city'];
+	$state = $_POST['state'];
+	$zipCode = $_POST['zipCode'];
+	$foodCheckbox = null;
+	$shelterCheckbox = null;
+	$healthCheckbox = null;
+	$skillsCheckbox = null;
+	$jobsCheckbox = null;
+	$otherCheckbox = null;
+	$description = null;
+
+	if($_POST['otherTextBox']) {
+		$description = $_POST['otherTextBox'];
+	}
+
+
+	if($_POST['category'] == 'Food') {
+		$foodCheckbox = true;
+	} else if ($_POST['category'] == 'Shelter') {
+		$shelterCheckbox = true;
+	} else if ($_POST['category'] == 'Health') {
+		$healthCheckbox = true;
+	} else if ($_POST['category'] == 'Skills') {
+		$skillsCheckbox = true;
+	} else if ($_POST['category'] == 'Jobs') {
+		$jobsCheckbox = true;
+	} else if ($_POST['category'] == 'Other') {
+		$otherCheckbox = $_POST['otherTextBox'];
+	}
+	$file = 'HCIdataApril24.xml';
+
+	$fp = fopen($file, "rb") or die("cannot open file");
+	$str = fread($fp, filesize($file));
+
+	$xml = new DOMDocument();
+	$xml->formatOutput = true;
+	$xml->preserveWhiteSpace = false;
+	$xml->loadXML($str) or die("Error");
+
+
+	// get document element
+	$root   = $xml->documentElement;
+	$newItem = $xml->createElement('Event');
+	$newItem->appendChild($xml->createElement('ID', '1'));
+
+	$newItem->appendChild($xml->createElement('Name', $eventName));
+
+	$categories = $xml->createElement('Categories');
+	if($foodCheckbox) {
+		$categories->appendChild($xml->createElement('Category', 'Food'));
+	} 
+	if($shelterCheckbox) {
+		$categories->appendChild($xml->createElement('Category', 'Shelter'));
+	} 
+	 if ($healthCheckbox) {
+		$categories->appendChild($xml->createElement('Category', 'Health'));
+	} 
+	if ($skillsCheckbox) {
+		$categories->appendChild($xml->createElement('Category', 'Skills'));
+	} 
+	 if ($jobsCheckbox) {
+		$categories->appendChild($xml->createElement('Category', 'Jobs'));
+	} 
+	if($otherCheckbox != null) {
+		$categories->appendChild($xml->createElement('Category', $otherCheckbox));
+	} 
+
+	$newItem->appendChild($categories);
+
+	if ($description != null) {
+		$newItem->appendChild($xml->createElement('Description', $description));
+	}
+
+	$newItem->appendChild($xml->createElement('Image'));
+	$newItem->appendChild($xml->createElement('Latitude'));
+	$newItem->appendChild($xml->createElement('Longitude'));
+	$newItem->appendChild($xml->createElement('Distance', '1.0'));
+	$newItem->appendChild($xml->createElement('Date', Date));
+	$newItem->appendChild($xml->createElement('Time', Time));
+	$newItem->appendChild($xml->createElement('OpenNow', 'True'));
+
+	$root->appendChild($newItem);
+	$xml->save('HCIdataApril24.xml') or die("Error");
+
+	echo '<script language="javascript">';
+	echo 'alert("Event information form has been successfully submitted.")';
+	echo '</script>';
+
+}
+ ?>
 <!DOCTYPE html>
 <!--
 	Transit by TEMPLATED
