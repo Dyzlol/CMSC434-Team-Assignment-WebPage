@@ -29,13 +29,13 @@ function searchResultsOnLoad(){
 function makeTemplate(obj){
 	
 	var div = document.createElement("div");
-	div.className = "resultTemplate";
+	div.className = "resultTemplate clear";
 	
 	var topRow = document.createElement("div");
-	topRow.className = "topRow padding";
+	topRow.className = "topRow";
 	var name = document.createElement("p");
 	name.innerText = obj.Name;
-	name.className = "header";
+	name.className = "header floatLeft";
 	topRow.appendChild(name);
 	var dist = document.createElement("p");
 	dist.innerText = obj.Distance + " miles";
@@ -43,20 +43,35 @@ function makeTemplate(obj){
 	topRow.appendChild(dist);
 	
 	var fixFloat = document.createElement("div");
-	fixFloat.className = "clearResult";
+	fixFloat.className = "clear";
 	
 	var midRow = document.createElement("div");
 	midRow.innerText = makeCategoryString(obj.Categories);
-	midRow.className = "midRow padding";
+	midRow.className = "midRow";
 	
 	var bottomRow = document.createElement("div");
-	bottomRow.innerText = "Bottom, here we go!";
-	bottomRow.className = "padding";
+	bottomRow.className = "";
+	var description = document.createElement("p");
+	description.innerText = obj.Description; //todo: change this to something else (?), make sure it doesn't overflow, etc
+	description.className = "floatLeft";
+	bottomRow.appendChild(description);
+	var rightArrow = document.createElement("p");
+	rightArrow.innerHTML = "&#8680";
+	rightArrow.className = "rightArrow hover floatRight";
+	bottomRow.appendChild(rightArrow);
 	
+	var fixFloat2 = document.createElement("div");
+	fixFloat2.className = "clear";
+	
+	// var fixFloat3 = document.createElement("div");
+	// fixFloat3.className = "clearResult";
+	
+	//div.appendChild(fixFloat3);
 	div.appendChild(topRow);
 	div.appendChild(fixFloat);
 	div.appendChild(midRow);
 	div.appendChild(bottomRow);
+	div.appendChild(fixFloat2);
 	
 	document.getElementById("resultsBox").appendChild(div);
 }
