@@ -1211,9 +1211,46 @@
 }
 
 #resultsBox{
+	text-align: left;
 	background-color: darkGray;
 	height: 400px;
 	overflow-y: scroll;
+}
+
+.resultTemplate{
+	background-color: lightBlue;
+	/* height: 20px; */
+	margin-bottom:50px;
+	border: solid;
+	padding: 10 10 10 10;
+}
+
+	.resultTemplate .topRow{
+		height:20px;
+	}
+
+	.resultTemplate .header{
+		float:left;
+		font-size: 16pt;
+	}
+	
+	.resultTemplate .floatRight{
+		float: right;
+	}
+	
+	.resultTemplate .midRow{
+		margin-top: -30px;
+		float: left;
+	}
+	
+.padding{
+	padding-left: 10px;
+	padding-right: 10px;
+}
+	
+.clearResult {
+	clear:both;
+	height: 0px;
 }
 
 /* Grid Demo */
