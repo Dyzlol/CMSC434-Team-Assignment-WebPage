@@ -1210,6 +1210,12 @@
 	font-size: 80px;
 }
 
+#resultsBox{
+	background-color: darkGray;
+	height: 400px;
+	overflow-y: scroll;
+}
+
 /* Grid Demo */
 
 	.grid-demo {

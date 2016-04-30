@@ -1,19 +1,22 @@
 
 function searchResultsOnLoad(){
-	console.log(window.sessionStorage);
-	
 	var searchTerm = getCookie("searchTerm");
 	document.getElementById("putStuffHere").innerText = "Initial Change";
 	document.getElementById("putStuffHere").innerText = searchTerm;
 	
+	document.getElementById("resultsBox").innerText = "results go here";
 	
-	var searchTerm = sessionStorage['searchTerm'];
-	// if (searchTerm === "a"){
-		// document.getElementById("putStuffHere").innerText = sessionStorage['searchTerm'];
-		// document.getElementById("putStuffHere").innerText = "How did this happen?";
-	// } else{
-		// document.getElementById("putStuffHere").innerText = "Initial Change";
-	// }
+	
+	
+	// var xmldoc = new ActiveXObject("Msxml2.DOMDocument.6.0");
+	// xmldoc.load("./HCIdataApril24.xml");
+    // console.log("made it");
+	// var data = xmlToJson(xmldoc);
+	// document.getElementById("resultsBox").innerText = data;
+	
+	// console.log("hi");
+	// var data = xmlToJson(./HCIdataApril24.xml);
+	// console.log(data);
 }
 
 function getCookie(cname) {
@@ -29,4 +32,38 @@ function getCookie(cname) {
         }
      }
      return "";
- } 
+} 
+ 
+
+// Changes XML to JSON
+xmlToJson = function(xml) {
+    var obj = {};
+    if (xml.nodeType == 1) {                
+        if (xml.attributes.length > 0) {
+            obj["@attributes"] = {};
+            for (var j = 0; j < xml.attributes.length; j++) {
+                var attribute = xml.attributes.item(j);
+                obj["@attributes"][attribute.nodeName] = attribute.nodeValue;
+            }
+        }
+    } else if (xml.nodeType == 3) { 
+        obj = xml.nodeValue;
+    }            
+    if (xml.hasChildNodes()) {
+        for (var i = 0; i < xml.childNodes.length; i++) {
+            var item = xml.childNodes.item(i);
+            var nodeName = item.nodeName;
+            if (typeof (obj[nodeName]) == "undefined") {
+                obj[nodeName] = xmlToJson(item);
+            } else {
+                if (typeof (obj[nodeName].push) == "undefined") {
+                    var old = obj[nodeName];
+                    obj[nodeName] = [];
+                    obj[nodeName].push(old);
+                }
+                obj[nodeName].push(xmlToJson(item));
+            }
+        }
+    }
+    return obj;
+}
