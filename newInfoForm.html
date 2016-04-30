@@ -17,11 +17,13 @@
 		<script src="./js/skel-layers.min.js"></script>
 		<script src="./js/init.js"></script>
 		<script src="js/otherFunc.js"></script>
+		<script src="sweetalert-master/dist/sweetalert.min.js"></script>
 		
 		<noscript>
 			<link rel="stylesheet" href="/css/skel.css"/>
 			<link rel="stylesheet" href="/css/style.css"/>
 			<link rel="stylesheet" href="/css/style-xlarge.css"/>
+			<link rel="stylesheet" href="sweetalert-master/dist/sweetalert.css">
 		</noscript>
 	</head>
 	<body class="landing">
@@ -96,12 +98,13 @@
 								<label for="descriptiontextBox"> Description of Place/Event:</label>
 								<textarea name = "otherTextBox" id="descriptiontextBox" rows="3" cols="1" placeholder="Please provide a description of the place and or event."></textarea>
 								</br>
-								
+									<script> SweetAlert("Hello world!!");
+									</script>
    								 	<label for="file">Select images to upload:</label>
     								<input type="file" name="file[]" multiple />
 							</div>
 						</div>
-							<input type="submit" value="Submit Form" name="submitForm">
+							<input type="submit" value="Submit Form" name="submitForm" onclick="swal();">
 
 						</form>
 					
