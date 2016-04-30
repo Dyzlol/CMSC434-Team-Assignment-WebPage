@@ -1206,6 +1206,12 @@
 	text-align: left;
 }
 
+#query{
+	font-color: darkBlue;
+	font-size: 18pt;
+	margin-bottom: 10px;
+}
+
 .huge{
 	font-size: 80px;
 }
@@ -1220,7 +1226,6 @@
 .resultTemplate{
 	background-color: lightBlue;
 	height: 120px;
-	margin-bottom: 10px;
 	border: solid;
 	padding: 10px 10px 10px 10px;
 }
@@ -1248,11 +1253,18 @@
 	}
 	
 .rightArrow{
-	font-weight: bold;
-	font-size: 40px;
-	position: relative;
+	font-size: 20pt;
+	height: 0px;
+	max-height: 20px;
 	bottom: 10px;
 	right: 10px;
+}
+
+
+/* TODO: this is not working!!!!! The hover color, anyway. The cursor is working, which is a clue*/
+.rightArrow:hover{
+	background-color: darkGray;
+	cursor: pointer;
 }
 	
 .clearResult {

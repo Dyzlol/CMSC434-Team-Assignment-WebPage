@@ -1,8 +1,10 @@
 
 function searchResultsOnLoad(){
 	var searchTerm = getCookie("searchTerm");
-	document.getElementById("putStuffHere").innerText = "Initial Change";
-	document.getElementById("putStuffHere").innerText = searchTerm;
+	document.getElementById("query").innerText = "What you're looking for: " + searchTerm;
+	//TODO: make this a text box so a person can change their search here
+	
+	//TODO: get each category cookie, filter results based on category
 	
 	document.getElementById("resultsBox").innerText = "Sorry, it seems we don't have any results for that search.";
 	
@@ -63,17 +65,25 @@ function makeTemplate(obj){
 	var fixFloat2 = document.createElement("div");
 	fixFloat2.className = "clear";
 	
-	// var fixFloat3 = document.createElement("div");
-	// fixFloat3.className = "clearResult";
-	
-	//div.appendChild(fixFloat3);
+	//Append each row to the top level div
 	div.appendChild(topRow);
 	div.appendChild(fixFloat);
 	div.appendChild(midRow);
 	div.appendChild(bottomRow);
 	div.appendChild(fixFloat2);
 	
+	//Set click listener
+	div.onclick = function(e){
+		resultClicked(obj);
+	}
+	
+	//Append div to scrolling list of results
 	document.getElementById("resultsBox").appendChild(div);
+}
+
+function resultClicked(result){
+	console.log(result);
+	//TODO: hook this up to a nice looking flyout, perhaps fancybox
 }
 
 function makeCategoryString(categories){
