@@ -1221,6 +1221,7 @@
 	background-color: darkGray;
 	height: 600px;
 	overflow-y: scroll;
+	/* box-shadow: 10px 10px 5px darkGray; Do something with this?*/
 }
 
 .resultTemplate{

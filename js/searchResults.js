@@ -58,7 +58,7 @@ function makeTemplate(obj){
 	description.className = "floatLeft";
 	bottomRow.appendChild(description);
 	var rightArrow = document.createElement("p");
-	rightArrow.innerHTML = "&#8680";
+	rightArrow.innerHTML = "&#8595";
 	rightArrow.className = "rightArrow hover floatRight";
 	bottomRow.appendChild(rightArrow);
 	
@@ -94,12 +94,34 @@ function resultClicked(d, data){
 	if(div.className.substring(0,14)=="resultTemplate"){
 		console.log(div.childNodes);
 		div.className = "resultExpanded clear";
-		div.removeChild(div.childNodes[4]);
-		div.removeChild(div.childNodes[3]);
+		div.removeChild(div.childNodes[4]); //remove final clear
+		div.removeChild(div.childNodes[3]); //remove bottomRow
+		
+		//build up bottom row with a bunch of extra text content
+		var bottomRow = document.createElement("div");
+		bottomRow.className = "bottomRow";
+		var description = document.createElement("p");
+		description.innerText = "This is a really long description and I'm just going to keep typing a bunch of meaningless text so you can tell that the div has expanded and you can now see more info. Good enough? I sure hope so!";
+		description.className = "floatLeft";
+		bottomRow.appendChild(description);
+		var rightArrow = document.createElement("p");
+		rightArrow.innerHTML = "&#8593";
+		rightArrow.className = "rightArrow hover floatRight";
+		bottomRow.appendChild(rightArrow);
+		
+		var fixFloat2 = document.createElement("div");
+		fixFloat2.className = "clear";
+		
+		div.appendChild(bottomRow);
+		div.appendChild(fixFloat2);
+		
 	} else { //If expanded, shrink it back to normal (TODO: remove map or anything else added)
 		console.log(div.childNodes);
 		div.className = "resultTemplate clear";
+		div.removeChild(div.childNodes[4]); //remove final clear
+		div.removeChild(div.childNodes[3]); //remove bottomRow
 		
+		//build up bottom row exactly as it's done in the original template
 		var bottomRow = document.createElement("div");
 		bottomRow.className = "bottomRow";
 		var description = document.createElement("p");
@@ -107,7 +129,7 @@ function resultClicked(d, data){
 		description.className = "floatLeft";
 		bottomRow.appendChild(description);
 		var rightArrow = document.createElement("p");
-		rightArrow.innerHTML = "&#8680";
+		rightArrow.innerHTML = "&#8595";
 		rightArrow.className = "rightArrow hover floatRight";
 		bottomRow.appendChild(rightArrow);
 		
