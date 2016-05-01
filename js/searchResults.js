@@ -52,7 +52,7 @@ function makeTemplate(obj){
 	midRow.className = "midRow";
 	
 	var bottomRow = document.createElement("div");
-	bottomRow.className = "";
+	bottomRow.className = "bottomRow";
 	var description = document.createElement("p");
 	description.innerText = obj.Description; //todo: change this to something else (?), make sure it doesn't overflow, etc
 	description.className = "floatLeft";
@@ -72,22 +72,64 @@ function makeTemplate(obj){
 	div.appendChild(bottomRow);
 	div.appendChild(fixFloat2);
 	
-	//Set click listener
+	//Set click listener, which passes the div and the json data to resultClicked
 	div.onclick = function(e){
-		resultClicked(obj);
+		resultClicked(e.target, obj);
 	}
 	
 	//Append div to scrolling list of results
 	document.getElementById("resultsBox").appendChild(div);
 }
 
-function resultClicked(result){
-	console.log(result);
+//d is the html element clicked, data is the underlying json data
+function resultClicked(d, data){
+	//From clicked element d, goes up through parent elements to find the result which was clicked
+	var div = d;
+	while(div.className.substring(0,6) != "result"){
+		div = div.parentNode;
+	}
+	console.log(div);
+	
+	//If was normal, expand it (TODO: add map and other exciting things)
+	if(div.className.substring(0,14)=="resultTemplate"){
+		console.log(div.childNodes);
+		div.className = "resultExpanded clear";
+		div.removeChild(div.childNodes[4]);
+		div.removeChild(div.childNodes[3]);
+	} else { //If expanded, shrink it back to normal (TODO: remove map or anything else added)
+		console.log(div.childNodes);
+		div.className = "resultTemplate clear";
+		
+		var bottomRow = document.createElement("div");
+		bottomRow.className = "bottomRow";
+		var description = document.createElement("p");
+		description.innerText = data.Description;
+		description.className = "floatLeft";
+		bottomRow.appendChild(description);
+		var rightArrow = document.createElement("p");
+		rightArrow.innerHTML = "&#8680";
+		rightArrow.className = "rightArrow hover floatRight";
+		bottomRow.appendChild(rightArrow);
+		
+		var fixFloat2 = document.createElement("div");
+		fixFloat2.className = "clear";
+		
+		div.appendChild(bottomRow);
+		div.appendChild(fixFloat2);
+		
+	}
+	//div.className = "resultExpanded clear";
+	//div.removeChild(div.childNodes[3]);
+	
+	// var bottomRows = document.getElementsByTagName("bottomRow"), i;
+    // for (i in bottomRows) {
+        // div.removeChild(i);
+    // }
+	
 	//TODO: hook this up to a nice looking flyout, perhaps fancybox
 }
 
 function makeCategoryString(categories){
-	console.log(categories.Category);
 	var str = "Services offered: ";
 	//If there are multiple categories, concatenate them in a comma-separated string
 	//This is necessary because json thinks Category is just a string if there's only one category, but an array is there are multiple
