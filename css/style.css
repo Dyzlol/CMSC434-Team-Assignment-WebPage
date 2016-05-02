@@ -1045,6 +1045,8 @@
 		background-image: url(../images/dark_tint.png), url(../images/washington-dc.jpg);
 		background-position: center center;
 		background-size: cover;
+		-webkit-background-size: cover;
+		margin: 0;
 		color: #ffffff;
 		padding: 14em 0em 14em;
 		text-align: center;
