@@ -1220,7 +1220,7 @@
 
 #resultsBox{
 	text-align: left;
-	background-color: gray;
+	background-color: white;
 	height: 600px;
 	overflow-y: scroll;
 	/* box-shadow: 10px 10px 5px darkGray; Do something with this?*/
