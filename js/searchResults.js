@@ -1,7 +1,7 @@
 
 function searchResultsOnLoad(){
 	var searchTerm = getCookie("searchTerm");
-	document.getElementById("query").innerText = "What you're looking for: " + searchTerm;
+	document.getElementById("query").innerHTML = "<p>What you're looking for: <font color='#7C93FC'>" + searchTerm + "</font></p>";
 	//TODO: make this a text box so a person can change their search here
 	
 	//TODO: get each category cookie, filter results based on category
