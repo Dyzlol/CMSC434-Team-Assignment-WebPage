@@ -803,7 +803,7 @@
 		-o-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 		-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 		transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-		background-color: #3cadd4;
+		background-color: #5e70bf;
 		border-radius: 30px;
 		border: 0;
 		color: #ffffff !important;
@@ -822,7 +822,7 @@
 		input[type="reset"]:hover,
 		input[type="button"]:hover,
 		.button:hover {
-			background-color: #51b6d9;
+			background-color: #7C93FC;
 			text-decoration: none;
 		}
 
@@ -830,7 +830,7 @@
 		input[type="reset"]:active,
 		input[type="button"]:active,
 		.button:active {
-			background-color: #2da2ca;
+			background-color: #444444;
 			text-decoration: none;
 		}
 
@@ -1227,14 +1227,14 @@
 }
 
 .resultTemplate{
-	background-color: lightBlue;
+	background-color: #7381ff;
 	height: 120px;
 	border: solid;
 	padding: 10px 10px 10px 10px;
 }
 
 .resultExpanded{
-	background-color: lightBlue;
+	background-color: #7381ff;
 	height: auto;
 	border: solid;
 	padding: 10px 10px 10px 10px;
