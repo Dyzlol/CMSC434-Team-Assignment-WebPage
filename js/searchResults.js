@@ -5,27 +5,37 @@ function searchResultsOnLoad(){
 	//TODO: make this a text box so a person can change their search here
 	
 	//TODO: get each category cookie, filter results based on category
+	/*
+	var categories = ["food", "shelter", "health", "skills", "jobs", "other"];
+	for(var cat : categories){
+		if(getCookie(cat) == "false"){
+			categories.remove(cat);
+		}
+	}
+	console.log(categories);
+	*/
 	
 	document.getElementById("resultsBox").innerText = "Sorry, it seems we don't have any results for that search.";
 	
 	//var json = {"Event": [{"ID": "1", "Name": "Bob's Shelter", "Categories": { "Category": "Shelter" }, "Description": "This is a description", "StreetAddress": "8301 Baltimore Ave College Park MD, 20740", "Distance": "0.3", "Date": "5/20/2016", "Time": "10am", "OpenNow": "True"}]}
 	var json = {"Event":[{"ID":"1","Name":"Bob's Shelter","Categories":{"Category":"Shelter"},"Description":"This is a description","Image":"","Latitude":"","Longitude":"","StreetAddress":"8301 Baltimore Ave College Park MD, 20740","Distance":"0.3","Date":"5/20/2016","Time":"10am","OpenNow":"True"},{"ID":"2","Name":"Caring Arms","Categories":{"Category":["Shelter","Food"]},"Description":"This is a description","Image":"","Latitude":"","Longitude":"","StreetAddress":"7423 Baltimore Ave College Park, MD 20740","Distance":"0.7","Date":"5/18/2016","Time":"6pm","OpenNow":"False"},{"ID":"3","Name":"Sarah's Hope","Categories":{"Category":["Shelter","Food"]},"Description":"This is a desription","Image":"","Latitude":"","Longitude":"","StreetAddress":"5331 Baltimore Ave, Hyattsville MD, 20781","Distance":"2.5","Date":"5/21/2016","Time":"9am","OpenNow":"True"},{"ID":"4","Name":"Stepping Stone Shelter","Categories":{"Category":"Shelter"},"Description":"","Image":"","Latitude":"","Longitude":"","StreetAddress":"3621 Campus Drive College Park, MD 20740","Distance":"1.1","Date":"5/19/2016","Time":"","OpenNow":"True"},{"ID":"5","Name":"Denny's Brunch","Categories":{"Category":"Food"},"Description":"This is a description","Image":"","Latitude":"","Longitude":"","StreetAddress":"8424 Baltimore Ave College Park, MD 20740","Distance":"0.5","Date":"5/19/2016","Time":"12pm","OpenNow":"True"},{"ID":"7","Name":"Georgia's Kitchen","Categories":{"Category":"Food"},"Description":"This is a description","Image":"","Latitude":"","Longitude":"","StreetAddress":"4511 Knox Road College Park, MD 20740","Distance":"0.8","Date":"5/22/2016","Time":"6am","OpenNow":"True"},{"ID":"8","Name":"Brunch on Us","Categories":{"Category":"Food"},"Description":"This is a description","Image":"","Latitude":"","Longitude":"","StreetAddress":"4954 Lakeland Road College Park, MD 20740","Distance":"0.5","Date":"5/21/2016","Time":"10am","OpenNow":"False"},{"ID":"9","Name":"Doc in the Box","Categories":{"Category":"Health"},"Description":"This is a description","Image":"","Latitude":"","Longitude":"","StreetAddress":"4701 Melbourne Plaza College Park, MD 20740","Distance":"0.3","Date":"","Time":"","OpenNow":"True"},{"ID":"10","Name":"Patient First","Categories":{"Category":"Health"},"Description":"This is a description","Image":"","Latitude":"","Longitude":"","StreetAddress":"8900 Baltimore Ave College Park, MD 20740","Distance":"0.9","Date":"5/24/2016","Time":"8am","OpenNow":"True"},{"ID":"11","Name":"Job Skills Workshop","Categories":{"Category":["Skills","Job"]},"Description":"This is a description","Image":"","Latitude":"","Longitude":"","StreetAddress":"8680 Baltimore Ave College Park, MD 20740","Distance":"2.0","Date":"5/23/2016","Time":"1pm","OpenNow":"True"},{"ID":"12","Name":"Alcoholics Anonymous","Categories":{"Category":"Skills"},"Description":"This is a description","Image":"","Latitude":"","Longitude":"","StreetAddress":"8150 Baltimore Ave College Park, MD 20740","Distance":"0.2","Date":"5/20/2016","Time":"6pm","OpenNow":"True"},{"ID":"13","Name":"UMD Career Center","Categories":{"Category":["Skills","Job"]},"Description":"This is a description","Image":"","Latitude":"","Longitude":"","StreetAddress":"4130 Campus Drive College Park, MD 20740","Distance":"0.4","Date":"5/18","Time":"5pm","OpenNow":"False"},{"ID":"14","Name":"Awesome Shelter","Categories":{"Category":["Shelter","Food","Health","Skills","Job"]},"Description":"This is a description","Image":"","Latitude":"","Longitude":"","StreetAddress":"1985 Corporal Frank Scott Drive College Park, MD 20740","Distance":"1.5","Date":"5/18/2016","Time":"11am","OpenNow":"True"}]};
 	
+	var anyResults = false; //used to remove default text if there are any events which satisfy search query or categories
 	for(var i = 0; i < json.Event.length; i++) {
-		if(i==0){document.getElementById("resultsBox").innerText="";} //If there are any results, remove default text
-		var obj = json.Event[i];
-		makeTemplate(obj);
+		//Make template of event if it satisfies search
+		if(passesSearch(json.Event[i])){
+			//If there are any results, remove default text
+			if(anyResults == false){
+				document.getElementById("resultsBox").innerText="";
+				anyResults = true;
+			} 
+			makeTemplate(json.Event[i]);
+		}
 	}
-	
-	// var xmldoc = new ActiveXObject("Msxml2.DOMDocument.6.0");
-	// xmldoc.load("./HCIdataApril24.xml");
-    // console.log("made it");
-	// var data = xmlToJson(xmldoc);
-	// document.getElementById("resultsBox").innerText = data;
-	
-	// console.log("hi");
-	// var data = xmlToJson(./HCIdataApril24.xml);
-	// console.log(data);
+}
+
+function passesSearch(obj){
+	return true;
 }
 
 function makeTemplate(obj){
