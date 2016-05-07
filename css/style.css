@@ -1003,12 +1003,14 @@
 						-ms-transition: color 0.2s ease-in-out;
 						transition: color 0.2s ease-in-out;
 						color: #cdced0;
+						background-color: #8a9be6 !important;
 						display: inline-block;
 						text-decoration: none;
 					}
 
 						#header nav > ul > li a:active, #header nav > ul > li a:hover {
 							color: #ffffff;
+							background-color: #99acff !important;
 						}
 
 					#header nav > ul > li:first-child {
@@ -1145,7 +1147,7 @@
 				color: #444;
 			}
 
-/* Footer */
+/* Footer on Homepage*/
 
 	#footer {
 		background: #383b43;
@@ -1202,6 +1204,63 @@
 		}
 
 
+/* Footer on all light pages*/
+
+	#footer2 {
+		background: lightGray;
+		padding: 6em 0em 4em;
+	}
+
+		#footer2 h2, #footer h3, #footer h4 {
+			color: #ffffff;
+		}
+
+		#footer2 p, #footer a, #footer li {
+			color: #cdced0;
+		}
+
+		#footer2 .links {
+			border-bottom: 1px solid rgba(144, 144, 144, 0.25);
+			margin-bottom: 4em;
+			padding-bottom: 1em;
+		}
+
+		#footer2 .copyright {
+			margin-top: 0.65em;
+			padding: 0;
+		}
+
+			#footer2 .copyright li {
+				color: #858585;
+				display: inline-block;
+				list-style: none;
+				margin-left: 0.5em;
+				padding-left: 0.5em;
+			}
+
+				#footer2 .copyright li:first-child {
+					margin-left: 0;
+					padding-left: 0;
+				}
+
+			#footer2 .copyright a {
+				color: #858585;
+			}
+
+		#footer2 .icons {
+			text-align: right;
+		}
+
+		#footer2 a.icon {
+			color: #ffffff;
+			font-size: 0.65em;
+			height: 4em;
+			line-height: 4em;
+			width: 4em;
+			cursor: pointer;
+		}
+
+		
 /* Amelia messing with things!!! */
 #bottomStuff{
 	width: 100%;
@@ -1317,4 +1376,42 @@
 
 		.grid-demo .row.flush > div:last-child span {
 			border-radius: 0 4px 4px 0;
+		}
+		
+/* Submit button on input page. Taking input button styles, but can't have it actually be an input because it breaks navigation to submitted.html */
+
+	.fakeButton{
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		-o-appearance: none;
+		-ms-appearance: none;
+		appearance: none;
+		-moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+		-webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+		-o-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+		-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+		transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+		background-color: #5e70bf;
+		border-radius: 30px;
+		border: 0;
+		color: #ffffff !important;
+		cursor: pointer;
+		display: inline-block;
+		font-weight: 400;
+		height: 2.85em;
+		line-height: 2.95em;
+		padding: 0 2em;
+		text-align: center;
+		text-decoration: none;
+		white-space: nowrap;
+	}
+
+		.fakeButton:hover {
+			background-color: #7C93FC;
+			text-decoration: none;
+		}
+
+		.fakeButton:active {
+			background-color: #2c2f35;
+			text-decoration: none;
 		}
