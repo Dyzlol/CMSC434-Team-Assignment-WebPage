@@ -1267,7 +1267,7 @@
 	text-align: left;
 }
 
-#query{
+#query, #queryText{
 	font-size: 18pt;
 	margin-bottom: 10px;
 	text-align: left;
@@ -1415,3 +1415,30 @@
 			background-color: #2c2f35;
 			text-decoration: none;
 		}
+	
+
+	/* Style for query at top of search results */
+#table{
+	margin-left: 250px;
+}
+	
+#queryBar {
+	float:left;
+	width:600px;
+	
+}
+#querySearch {
+	padding-left : 20px;
+	float:left;
+}
+
+#table{
+	width: 720px;
+}
+
+#toggleSearch{
+	float:right;
+	margin-bottom:10px;
+	outline: solid 2px #5e70bf;
+	width:100px;
+}
