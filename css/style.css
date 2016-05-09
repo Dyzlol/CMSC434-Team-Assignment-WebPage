@@ -1330,6 +1330,11 @@
 	right: 10px;
 }
 
+.imageMap{
+	width: 500px;
+	height: 300px;
+}
+
 
 /* TODO: this is not working!!!!! The hover color, anyway. The cursor is working, which is a clue*/
 /* TODO: make cursor pointer on the whole result, since it's all clickable? */

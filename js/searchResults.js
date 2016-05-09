@@ -129,7 +129,7 @@ function resultClicked(d, data){
 		var bottomRow = document.createElement("div");
 		bottomRow.className = "bottomRow";
 		var description = document.createElement("p");
-		description.innerText = "This is a really long description and I'm just going to keep typing a bunch of meaningless text so you can tell that the div has expanded and you can now see more info. Good enough? I sure hope so!";
+		description.innerText = "The Bagel Place gives back to the community and makes an effort to reduce waste by packaging day-old bagels to give away. In order to receive free bagels, please come to the front counter and ask about leftovers. In general, we tend to run out by around 1pm, so it's best to come early! Hours of operation: Monday-Friday 7am-6pm, Saturday and Sunday 7am-2pm.";
 		description.className = "floatLeft";
 		bottomRow.appendChild(description);
 		var rightArrow = document.createElement("p");
@@ -140,14 +140,30 @@ function resultClicked(d, data){
 		var fixFloat2 = document.createElement("div");
 		fixFloat2.className = "clear";
 		
+		var openNow = document.createElement("div");
+		openNow.innerText = "Open now!";
+		
+		var address = document.createElement("div");
+		address.innerText = "Address: " + data.StreetAddress;
+		
+		var img = document.createElement("img");
+		img.src = "./images/csToBagelMap.jpg";
+		img.className = "imageMap";
+
+		div.appendChild(address);
+		div.appendChild(img);
+		div.appendChild(openNow);
 		div.appendChild(bottomRow);
 		div.appendChild(fixFloat2);
 		
 	} else { //If expanded, shrink it back to normal (TODO: remove map or anything else added)
 		console.log(div.childNodes);
 		div.className = "resultTemplate clear";
-		div.removeChild(div.childNodes[4]); //remove final clear
-		div.removeChild(div.childNodes[3]); //remove bottomRow
+		div.removeChild(div.childNodes[7]); //remove final clear
+		div.removeChild(div.childNodes[6]); //remove bottomRow
+		div.removeChild(div.childNodes[5]); //remove openNow
+		div.removeChild(div.childNodes[4]); //remove img
+		div.removeChild(div.childNodes[3]); //remove address
 		
 		//build up bottom row exactly as it's done in the original template
 		var bottomRow = document.createElement("div");
